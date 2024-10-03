@@ -13,4 +13,5 @@ class AsyncLogJob < ApplicationJob
   end
 
   retry_on StandardError, wait: 5.seconds, attempts: 3
+  discard_on StandardError
 end
