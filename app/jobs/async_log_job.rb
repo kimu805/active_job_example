@@ -12,5 +12,5 @@ class AsyncLogJob < ApplicationJob
     AsyncLog.create!(message: message)
   end
 
-  retry_on 
+  retry_on StandardError, wait: 5.seconds, attempts: 3
 end
